@@ -6,7 +6,7 @@ module.exports = {
   output: {
     publicPath: "http://localhost:3000/",
   },
-
+  target: "web",
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.(css|s[ac]ss)$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
-      },
+      }, 
       {
         test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
@@ -44,7 +44,8 @@ module.exports = {
       name: "micro_fe_consumer",
       filename: "remoteEntry.js",
       remotes: {
-        react: "react@http://localhost:3001/remoteEntry.js"
+        react_mf: "react_mf@http://localhost:3001/remoteEntry.js",
+        angular_mf: "angular_mf@http://localhost:3002/remoteEntry.js",
       },
       exposes: {},
       shared: {
